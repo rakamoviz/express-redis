@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: redis-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express-redis
+  template:
+    metadata:
+      labels:
+        app: express-redis
+    spec:
+      containers:
+      - name: redis-container
+        image: redis-container:0.0.1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 6379

@@ -1,0 +1,8 @@
+minikube stop
+minikube delete
+rm -Rf ~/.minikube
+sudo systemctl restart libvirtd
+virsh --connect qemu:///system net-destroy default
+virsh --connect qemu:///system net-start default
+virsh net-autostart default
+minikube start --vm-driver kvm2

@@ -1,0 +1,5 @@
+minikube stop
+minikube delete
+virsh --connect qemu:///system net-destroy default
+virsh --connect qemu:///system net-start default
+minikube start --vm-driver kvm2

@@ -21,6 +21,11 @@ kubectl delete service redis
 kubectl delete deployment express-api-deployment
 kubectl delete deployment redis-deployment
 
+kubectl create -f lol-configmap.yaml
+sleep 5
+kubectl create -f lol-secret.yaml
+sleep 5
+
 kubectl create -f redis-deployment.yaml
 sleep 15
 kubectl create -f redis-service.yaml

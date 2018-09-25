@@ -18,3 +18,14 @@ spec:
         imagePullPolicy: Never
         ports:
         - containerPort: 3000
+        env:
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: lol-secret
+              key: redisPassword
+        - name: ENTRY_KEY
+          valueFrom:
+            configMapKeyRef:
+              name: lol-configmap
+              key: entryKey
